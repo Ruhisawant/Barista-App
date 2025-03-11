@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import BaristaForm from './components/BaristaForm';
+import BaristaForm from './components/BaristaForm'
 import './App.css'
 
 function App() {
