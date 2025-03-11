@@ -5,6 +5,10 @@ import drinksJson from '../drinks.json'
 const BaristaForm = () => {
   const [currentDrink, setCurrentDrink] = useState('')
   const [trueRecipe, setTrueRecipe] = useState({})
+  const [correct_temp, setCheckedTemperature] = useState('')
+  const [correct_syrup, setCheckedSyrup] = useState('')
+  const [correct_milk, setCheckedMilk] = useState('')
+  const [correct_blended, setCheckedBlended] = useState('')
 
   const [inputs, setInputs] = useState({
     'temperature': '',
@@ -31,13 +35,41 @@ const BaristaForm = () => {
       'milk': '',
       'syrup': '',
       'blended': '' })
-      
+
+    setCheckedTemperature('')
+    setCheckedSyrup('')
+    setCheckedMilk('')
+    setCheckedBlended('')
+
     getNextDrink()
   }
 
   const onCheckAnswer = () => {
-    
+    if (trueRecipe.temp != inputs['temperature']){
+      setCheckedTemperature('wrong')
+    } else {
+      setCheckedTemperature("correct")
+    }
+
+    if (trueRecipe.temp != inputs['syrup']){
+      setCheckedTemperature('wrong')
+    } else {
+      setCheckedTemperature("correct")
+    }
+
+    if (trueRecipe.temp != inputs['milk']){
+      setCheckedTemperature('wrong')
+    } else {
+      setCheckedTemperature("correct")
+    }
+
+    if (trueRecipe.temp != inputs['blended']){
+      setCheckedTemperature('wrong')
+    } else {
+      setCheckedTemperature("correct")
+    }
   }
+
   return (
     <div>
       <h2>Hi, I'd like to order a:</h2>
@@ -47,7 +79,7 @@ const BaristaForm = () => {
       </div>
       <form>
         <h3>Temperature</h3>
-        <div className='answer-space' >
+        <div className='answer-space' id={correct_temp}>
           {inputs['temperature']} 
         </div>
         <RecipeChoices
@@ -63,7 +95,7 @@ const BaristaForm = () => {
 
       <form>
         <h3>Syrup</h3>
-        <div className='answer-space' >
+        <div className='answer-space' id={correct_syrup}>
           {inputs['syrup']} 
         </div>
         <RecipeChoices
@@ -79,7 +111,7 @@ const BaristaForm = () => {
 
       <form>
         <h3>Milk</h3>
-        <div className='answer-space' >
+        <div className='answer-space' id={correct_milk}>
           {inputs['milk']} 
         </div>
         <RecipeChoices
@@ -95,7 +127,7 @@ const BaristaForm = () => {
 
       <form>
         <h3>Blended</h3>
-        <div className='answer-space' >
+        <div className='answer-space' id={correct_blended}>
           {inputs['blended']} 
         </div>
         <RecipeChoices
