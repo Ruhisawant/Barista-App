@@ -46,24 +46,36 @@ const BaristaForm = () => {
   }
 
   const onCheckAnswer = () => {
+    if (!ingredients['temperature'].includes(inputs['temperature'])) {
+      alert("For temperature, that isn't even an option!")
+    }
     if (trueRecipe.temp != inputs['temperature']){
       setCheckedTemperature('wrong')
     } else {
       setCheckedTemperature("correct")
     }
 
+    if (!ingredients['syrup'].includes(inputs['syrup'])) {
+      alert("For syrup, that isn't even an option!")
+    }
     if (trueRecipe.temp != inputs['syrup']){
       setCheckedTemperature('wrong')
     } else {
       setCheckedTemperature("correct")
     }
 
+    if (!ingredients['milk'].includes(inputs['milk'])) {
+      alert("For milk, that isn't even an option!")
+    }
     if (trueRecipe.temp != inputs['milk']){
       setCheckedTemperature('wrong')
     } else {
       setCheckedTemperature("correct")
     }
 
+    if (!ingredients['blended'].includes(inputs['blended'])) {
+      alert("For blended, that isn't even an option!")
+    }
     if (trueRecipe.temp != inputs['blended']){
       setCheckedTemperature('wrong')
     } else {
